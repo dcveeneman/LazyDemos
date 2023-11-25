@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var columnWidths = [
+        GridItem(.fixed(100)),
+        GridItem()
+    ]
+    
     var body: some View {
         ScrollView {
             
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 5)], spacing: 5) {
+            LazyVGrid(columns: columnWidths) {
                 ForEach(0..<1000) {i in
                     RedAndCyanView()
                 }
